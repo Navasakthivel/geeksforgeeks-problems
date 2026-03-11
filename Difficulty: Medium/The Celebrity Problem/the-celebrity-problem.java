@@ -11,18 +11,26 @@ class Solution {
             int a = st.pop();
             int b = st.pop();
             if(mat[a][b] == 1) {
-                st.push(b);   
+                if(mat[b][a]==0){
+                    st.push(b);   
+                }
             } else {
-                st.push(a);   
-            }
-        }
-        int pc = st.pop();
-        for(int i = 0; i < n; i++) {
-            if(i != pc) {
-                if(mat[pc][i] == 1 || mat[i][pc] == 0) {
-                    return -1;
+                if(mat[b][a]==1){
+                    st.push(a);
                 }
             }
+        }
+        int pc;
+        if(!st.isEmpty()){
+            pc=st.pop();
+        }else{
+            return -1;
+        }
+        for(int i = 0; i < n; i++) {
+            if(i == pc) continue;
+                if(mat[pc][i] != 0 || mat[i][pc] != 1) {
+                    return -1;
+                }
         }
         return pc;
     }
