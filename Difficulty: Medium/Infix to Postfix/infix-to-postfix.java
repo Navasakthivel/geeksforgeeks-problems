@@ -26,17 +26,13 @@ class Solution {
                     char top = st.peek();
                     if(prio.get(top) > prio.get(c)) {
                         result.append(st.pop());
-                        
                     }
                     else if(prio.get(top) == prio.get(c) && c != '^') {
                         result.append(st.pop());
-                        
                     }
                     else {
                         break;
-                        
                     }
-                    
                 }
                 st.push(c);
             }
