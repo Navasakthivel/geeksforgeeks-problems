@@ -5,9 +5,9 @@ class Solution {
             return 1;
         }
         int count=0;
-        count+=towerOfHanoi(n-1,from,aux,to);
-        count++;
-        count+=towerOfHanoi(n-1,aux,to,from);
+        count+=towerOfHanoi(n-1,from,to,aux);
+        count+=towerOfHanoi(1,from,aux,to);
+        count+=towerOfHanoi(n-1,aux,from,to);
         return count;
     }
 }
